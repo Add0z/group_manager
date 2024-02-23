@@ -25,6 +25,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
-  }
+    },
+    "plugins": [
+      "expo-font"
+    ],
+    "sdkVersion": "50.0.0"
+  },
+  "name": "group_manager"
 }
