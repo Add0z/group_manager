@@ -1,21 +1,51 @@
-import { Header } from '@components/loading/header';
+import { Header } from '@components/header';
+// import { useNavigation } from 'react-navigation/native';
 import { Container, Title } from './style';
 import { Button } from 'react-native'
+import { Highlight } from '@components/Highlight';
+import { GroupCard } from '@components/GroupCard';
+import { useState } from 'react';
+import { FlatList } from 'react-native';
+import { ListEmpty } from '@components/ListEmpty';
+import { ButtonStyled } from '@components/Button';
+import { NewGroup } from '@screens/NewGroup';
 
 export function Groups() {
+
+  // const navigation = useNavigation();
+
+  const [groups, setGroups] = useState([
+    "Galera do Rocket",
+    "Jogadores do Rocket",
+    "Jogadores do Rocket 2"],
+
+    )
   return (
     <Container>
       <Header />
-      <Title>Groups</Title>
-      <Button 
-              onPress={ButtonPressed}
-              title="Learn More"
-              color="#841584"
-              accessibilityLabel="Learn more about this purple button"
-                />
+      <Highlight title = "Turmas"
+        subtitle = "Jogue com a sua turma" />
+      <FlatList
+        data={groups}
+        keyExtractor={item => item}
+        renderItem={({ item }) => 
+        <GroupCard title = {item}
+          onPress={ButtonPressed}
+        />}
+        ListEmptyComponent={() => <ListEmpty message="Nao há turmas ainda" />}
+      />
+      {/* <ButtonStyled title='Criar nova turma' onPress={handleNewGroup}  /> */}
     </Container>
   );
 }
+
+
+
+// function handleNewGroup() {
+//   console.log("Nova turma");
+//   navigation.navigate('Newgroup');
+
+// }
 
 function ButtonPressed() {
   // debugger
