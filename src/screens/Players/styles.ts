@@ -1,3 +1,4 @@
+import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native";
 
 export const Container10 = styled.View`
@@ -16,7 +17,7 @@ export const Form1 = styled.View`
     margin-bottom: 16px;
 `
 
-export const HeaderList = styled.View`
+export const HeaderList = styled(SafeAreaView)`
     width: 100%;
     flex-direction: row;
     align-items: center;

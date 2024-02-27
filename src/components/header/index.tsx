@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { Container3,Logo } from "./style";
 import { BackIcon,BackButton  } from "./style";
 
@@ -8,12 +9,14 @@ type props = {
 }
 
 export function Header({showBackButton = false}: props) {
+    function handleGoBack() {
+        useNavigation().navigate('groups');
+    }
+
     return (
         <Container3>{ 
             showBackButton &&
-            <BackButton
-                //  onPress={handleGoBack}
-            >
+            <BackButton onPress={handleGoBack} >
                 <BackIcon />
             </BackButton>
     }

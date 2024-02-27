@@ -9,10 +9,9 @@ import { FlatList } from 'react-native';
 import { ListEmpty } from '@components/ListEmpty';
 import { ButtonStyled } from '@components/Button';
 import { NewGroup } from '@screens/NewGroup';
+import { useNavigation } from '@react-navigation/native';
 
 export function Groups() {
-
-  // const navigation = useNavigation();
 
   const [groups, setGroups] = useState([
     "Galera do Rocket",
@@ -20,6 +19,13 @@ export function Groups() {
     "Jogadores do Rocket 2"],
 
     )
+
+  const navigation = useNavigation();
+
+  function handleNewGroup() {
+    navigation.navigate('new');
+  }
+
   return (
     <Container>
       <Header />
@@ -34,7 +40,7 @@ export function Groups() {
         />}
         ListEmptyComponent={() => <ListEmpty message="Nao há turmas ainda" />}
       />
-      {/* <ButtonStyled title='Criar nova turma' onPress={handleNewGroup}  /> */}
+      <ButtonStyled title='Criar nova turma' onPress={handleNewGroup}  />
     </Container>
   );
 }

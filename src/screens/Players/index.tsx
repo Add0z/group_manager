@@ -9,19 +9,26 @@ import { useState } from "react";
 import { PlayerCard } from "@components/PlayerCard";
 import { ListEmpty } from '@components/ListEmpty';
 import { ButtonStyled } from "@components/Button";
+import { useRoute } from "@react-navigation/native";
 
-
+type RouteType = {
+    group: string;
+}
 
 
 export function Players() {
     const [team, setTeam] = useState('Time A');
     const [players, setPlayers] = useState(['André'])
+    const route = useRoute();
+    const { group } = route.params as RouteType;
 
+
+    
 
     return(
         <Container10 >
             <Header showBackButton  />
-            <Highlight title="Nome da Turma" subtitle="Jogue com a sua turma" />
+            <Highlight title={group} subtitle="Jogue com a sua turma" />
             <Form1>
                 <Input placeholder="Nome da pessoa" autoCorrect={false}/>
                 <ButtonIcon icon="add" />
