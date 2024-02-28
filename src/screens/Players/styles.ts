@@ -14,7 +14,7 @@ export const Form1 = styled.View`
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    margin-bottom: 16px;
+    margin-bottom: -10px;
 `
 
 export const HeaderList = styled(SafeAreaView)`
@@ -22,7 +22,7 @@ export const HeaderList = styled(SafeAreaView)`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin : 32px 0 12px;
+    margin : 0px 0 12px;
 `
 
 export const NumberOfPlayers = styled.Text`

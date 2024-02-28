@@ -8,9 +8,14 @@ type props = {
     showBackButton?: boolean
 }
 
+
+
 export function Header({showBackButton = false}: props) {
+
+    const navigation = useNavigation()
+
     function handleGoBack() {
-        useNavigation().navigate('groups');
+        navigation.navigate('groups');
     }
 
     return (
